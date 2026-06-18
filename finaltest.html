@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Input</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Enter Marks for 5 Subjects</h2>
+
+    <form>
+        <input type="number" id="sub1" placeholder="Subject 1"><br>
+        <input type="number" id="sub2" placeholder="Subject 2"><br>
+        <input type="number" id="sub3" placeholder="Subject 3"><br>
+        <input type="number" id="sub4" placeholder="Subject 4"><br>
+        <input type="number" id="sub5" placeholder="Subject 5"><br>
+
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculate() {
+            let s1 = parseFloat(document.getElementById("sub1").value) || 0;
+            let s2 = parseFloat(document.getElementById("sub2").value) || 0;
+            let s3 = parseFloat(document.getElementById("sub3").value) || 0;
+            let s4 = parseFloat(document.getElementById("sub4").value) || 0;
+            let s5 = parseFloat(document.getElementById("sub5").value) || 0;
+
+            let total = s1 + s2 + s3 + s4 + s5;
+            let average = total / 5;
+
+            document.getElementById("result").innerHTML =
+                "Total Marks: " + total + "<br>Average: " + average.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
