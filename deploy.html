@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+class PaymentGateway {
+
+    // Method to validate card number (simple check)
+    public static boolean validateCard(String cardNumber) {
+        return cardNumber.length() == 16;
+    }
+
+    // Method to validate CVV
+    public static boolean validateCVV(String cvv) {
+        return cvv.length() == 3;
+    }
+
+    // Method to process payment
+    public static boolean processPayment(double amount) {
+        // Simulate payment success if amount < 50000
+        if (amount > 0 && amount <= 50000) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("=== Payment Gateway ===");
+
+        System.out.print("Enter Card Number (16 digits): ");
+        String cardNumber = sc.nextLine();
+
+        System.out.print("Enter CVV (3 digits): ");
+        String cvv = sc.nextLine();
+
+        System.out.print("Enter Amount: ");
+        double amount = sc.nextDouble();
+
+        // Validation
+        if (!validateCard(cardNumber)) {
+            System.out.println("Invalid Card Number!");
+            return;
+        }
+
+        if (!validateCVV(cvv)) {
+            System.out.println("Invalid CVV!");
+            return;
+        }
+
+        // Process Payment
+        boolean paymentStatus = processPayment(amount);
+
+        if (paymentStatus) {
+            System.out.println("✅ Payment Successful!");
+        } else {
+            System.out.println("❌ Payment Failed!");
+        }
+
+        sc.close();
+    }
+}
